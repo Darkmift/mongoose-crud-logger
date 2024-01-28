@@ -7,9 +7,9 @@ export default class MongoCrudService<T extends Document> {
     private collectionName: string;
     private historyLogService: HistoryLogService;
 
-    constructor(model: Model<T>, collectionName: string) {
+    constructor(model: Model<T>) {
         this.model = model;
-        this.collectionName = collectionName;
+        this.collectionName = model.collection.name;
         this.historyLogService = new HistoryLogService();
     }
 
