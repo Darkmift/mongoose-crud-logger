@@ -14,7 +14,7 @@ export default class MongoCrudService<T extends Document> {
     }
 
     private getUpdatedFields(original: T, updated: T): Partial<T> {
-        let changes: Record<string, unknown> = {};
+        const changes: Record<string, unknown> = {};
         const originalDoc = original.toObject();
         const updatedDoc = updated.toObject();
 
@@ -66,7 +66,7 @@ export default class MongoCrudService<T extends Document> {
             throw new Error('Document not found');
         }
 
-        let differences = this.getUpdatedFields(original, updated);
+        const differences = this.getUpdatedFields(original, updated);
 
         await this.historyLogService.logAction(
             updated._id,
