@@ -1,9 +1,8 @@
-import UserModel, { UserModelType } from '@/models/user.model';
+import UserModel, { User } from '@/models/user.model';
 import MongoCrudService from '@/services/mongo-crud.service';
-import { Model } from 'mongoose';
 
-export default class UserCrudService extends MongoCrudService<UserModelType> {
+export default class UserCrudService extends MongoCrudService<User> {
     constructor() {
-        super(UserModel as unknown as Model<UserModelType>, 'moderator_users');
+        super(UserModel, 'moderator_users');
     }
 }
