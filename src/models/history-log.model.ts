@@ -8,7 +8,7 @@ export enum ActionType {
 }
 
 @modelOptions({ schemaOptions: { collection: 'history_logs' } })
-class HistoryLog {
+export class HistoryLog {
     @prop({ required: true })
     public itemId!: string;
 
@@ -24,5 +24,3 @@ class HistoryLog {
 
 const HistoryLogModel = getModelForClass(HistoryLog);
 export default HistoryLogModel;
-
-export type HistoryLogModelType = typeof HistoryLogModel;

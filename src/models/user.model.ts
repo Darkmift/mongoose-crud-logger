@@ -1,13 +1,8 @@
-import {
-    prop,
-    getModelForClass,
-    modelOptions,
-    DocumentType,
-} from '@typegoose/typegoose';
+import { prop, getModelForClass, modelOptions } from '@typegoose/typegoose';
 import { Document } from 'mongoose';
 
 @modelOptions({ schemaOptions: { collection: 'moderator_users' } })
-class User extends Document {
+export class User extends Document {
     @prop({ required: true })
     public name!: string;
 
@@ -21,5 +16,3 @@ class User extends Document {
 const UserModel = getModelForClass(User);
 
 export default UserModel;
-
-export type UserModelType = DocumentType<typeof UserModel>;
